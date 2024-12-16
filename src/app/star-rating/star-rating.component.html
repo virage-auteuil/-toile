@@ -1,0 +1,37 @@
+<div class="rating-container" [ngClass]="{'green': rating === 5, 'yellow': rating >= 3 && rating < 5, 'red': rating <= 1}">
+  <h1 class="title">Évaluez notre service !</h1>
+  <div class="stars">
+    <ng-container *ngFor="let star of stars">
+      <span
+        class="star"
+        [class.filled]="star <= rating"
+        (click)="setRating(star)"
+        (mouseover)="rating = star"
+        (mouseleave)="ratingChange.emit(rating)"
+      >
+        ★
+      </span>
+    </ng-container>
+  </div>
+
+  <div class="feedback">
+    <p class="result">Votre note : {{ rating }} étoile(s)</p>
+    <p *ngIf="rating === 5" class="message">⭐ Merci pour la note parfaite ! ⭐</p>
+    <p *ngIf="rating === 1" class="message">😞 Nous sommes désolés de ne pas avoir répondu à vos attentes.</p>
+    <p *ngIf="rating === 2" class="message">😕 Votre avis nous intéresse, nous pouvons faire mieux !</p>
+    <p *ngIf="rating === 3" class="message">😐 Nous sommes à l'écoute de vos suggestions.</p>
+    <p *ngIf="rating === 4" class="message">🙂 Merci pour votre évaluation positive !</p>
+  </div>
+
+  <!-- Emoji dynamique -->
+  <div class="emoji">
+    <ng-container [ngSwitch]="rating">
+      <span *ngSwitchCase="1">😞</span>
+      <span *ngSwitchCase="2">😕</span>
+      <span *ngSwitchCase="3">😐</span>
+      <span *ngSwitchCase="4">🙂</span>
+      <span *ngSwitchCase="5">😁</span>
+      <span *ngSwitchDefault>😐</span>
+    </ng-container>
+  </div>
+</div>

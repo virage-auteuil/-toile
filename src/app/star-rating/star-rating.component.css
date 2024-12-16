@@ -1,0 +1,72 @@
+/* Styles généraux pour occuper tout l'écran */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+}
+
+.rating-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  transition: background 1s ease, color 1s ease; /* Transition fluide */
+  background: #e57373; /* 1 étoile -> couleur rouge par défaut */
+}
+
+.rating-container.green {
+  background: #81c784; /* 5 étoiles -> couleur verte */
+}
+
+.rating-container.yellow {
+  background: #ffeb3b; /* 3-4 étoiles -> couleur jaune */
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.stars {
+  display: flex;
+  gap: 15px;
+}
+
+.star {
+  font-size: 4rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.star:hover {
+  transform: scale(1.5);
+  text-shadow: 0px 0px 10px #f9d342;
+}
+
+.star.filled {
+  color: #f9d342; /* Couleur dorée des étoiles sélectionnées */
+}
+
+.feedback {
+  margin-top: 30px;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.message {
+  color: #4caf50; /* Vert pour un message positif */
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.emoji {
+  font-size: 5rem;
+  margin-top: 20px;
+}
